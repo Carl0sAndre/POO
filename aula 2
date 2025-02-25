@@ -1,0 +1,52 @@
+import java.util.Scanner;
+
+public class Conta
+{
+    int numero;
+    String nome;
+    double limite;
+    double saldo;
+    double sacar;
+    double
+    Scanner scan = new Scanner(System.in);
+    
+    void info()
+    {
+        System.out.print("Digite o número da sua conta: ");
+        numero = scan.nextInt();
+        scan.nextLine();
+        System.out.print("Informe seu nome: ");
+        nome = scan.nextLine();
+        System.out.print("Digite o limite da sua conta: ");
+        limite = scan.nextDouble();
+        System.out.print("Informe o seu saldo: ");
+        saldo = scan.nextDouble();
+    }
+    void sacar()
+    {
+        System.out.print("Qual valor deseja sacar: ");
+        sacar = nextDouble();
+        
+        if (sacar > saldo)
+        {
+            System.out.println("ERRO: Saldo insuficiente.");
+        }
+        else if(sacar > limite)
+        {
+            System.out.println("ERRO: Limite")
+        }
+        else
+        {
+            
+        }
+    }
+    public static void main(String[] args)
+    {
+        Conta conta = new Main();
+        conta.info();
+        System.out.printf("Número da conta: %d\n", conta.numero);
+        System.out.printf("Nome: %s\n", conta.nome);
+        System.out.printf("Limite da conta: %.2f\n", conta.limite);
+        System.out.printf("Saldo da conta: %.2f\n", conta.saldo);
+    }
+}

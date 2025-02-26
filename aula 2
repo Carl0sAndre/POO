@@ -1,7 +1,40 @@
+package com.mycompany.main;
 import java.util.Scanner;
+/**
+ *
+ * @author alunolab08
+ */
+public class Main {
+    public static void main(String[] args)
+    {
+        Scanner scan = new Scanner(System.in);
+        int opcao;
+        
+        do
+        {
+            System.out.println("-------------------------------------");
+            System.out.println("Digite o número da escolha desejada: ");
+            System.out.println("-------------------------------------");
+	    System.out.println("[1] Sacar");
+	    System.out.println("[2] Depositar");
+	    System.out.println("[3] Consultar Saldo");
+	    System.out.println("[4] Consultar Limite");
+	    System.out.println("[0] Sair");
+	    System.out.println("-------------------------------------");
+            System.out.print("Escolha a sua opção: ");
+            opcao = scan.nextInt();
+        
+            switch(opcao)
+            {
+                case 1:
+                    System.out.println("Qual valor deseja sacar: ");
+                
+            }
+        }while(opcao != 0);
+    }
+}
 
-public class Conta
-{
+public class Conta {
     int numero;
     String nome;
     double limite;
@@ -39,14 +72,5 @@ public class Conta
         {
             
         }
-    }
-    public static void main(String[] args)
-    {
-        Conta conta = new Main();
-        conta.info();
-        System.out.printf("Número da conta: %d\n", conta.numero);
-        System.out.printf("Nome: %s\n", conta.nome);
-        System.out.printf("Limite da conta: %.2f\n", conta.limite);
-        System.out.printf("Saldo da conta: %.2f\n", conta.saldo);
     }
 }

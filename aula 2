@@ -1,12 +1,16 @@
 package com.mycompany.main;
 import java.util.Scanner;
+
 /**
  *
  * @author alunolab08
  */
 public class Main {
-    public static void main(String[] args)
-    {
+
+    public static void main(String[] args) {
+        
+        Conta conta = new Conta(10000.00, 100.00);
+        
         Scanner scan = new Scanner(System.in);
         int opcao;
         
@@ -26,51 +30,80 @@ public class Main {
         
             switch(opcao)
             {
+                case 0:
+                    System.out.println("Saindo...");
+                    break;
                 case 1:
-                    System.out.println("Qual valor deseja sacar: ");
+                    System.out.print("Digite o valor que deseja sacar: ");
+                    double saque = scan.nextDouble();
+                    conta.sacar(saque);
+                    break;
+                case 2:
+                    System.out.print("Digite o valor que deseja depositar: ");
+                    double deposi = scan.nextDouble();
+                    conta.deposito(deposi);
+                    break;
+                case 3:
+                    System.out.printf("O seu saldo é de: R$ %f", conta.getSaldo());
+                    break;
+                case 4:
+                    System.out.printf("Seu limite atual é de: R$ %f", conta.getLimite());
+                    break;
+                default:
+                    System.err.println("Opção inválida.");
                 
             }
         }while(opcao != 0);
     }
 }
 
+package com.mycompany.main;
+
+/**
+ *
+ * @author alunolab08
+ */
 public class Conta {
-    int numero;
-    String nome;
-    double limite;
     double saldo;
-    double sacar;
-    double
-    Scanner scan = new Scanner(System.in);
+    double limite;
     
-    void info()
+    public Conta(double saldoInicial, double limiteInicial)
     {
-        System.out.print("Digite o número da sua conta: ");
-        numero = scan.nextInt();
-        scan.nextLine();
-        System.out.print("Informe seu nome: ");
-        nome = scan.nextLine();
-        System.out.print("Digite o limite da sua conta: ");
-        limite = scan.nextDouble();
-        System.out.print("Informe o seu saldo: ");
-        saldo = scan.nextDouble();
+        saldo = saldoInicial;
+        limite = limiteInicial;
     }
-    void sacar()
+    
+    void sacar(double valor)
     {
-        System.out.print("Qual valor deseja sacar: ");
-        sacar = nextDouble();
-        
-        if (sacar > saldo)
+        if(valor > 0 && valor <= saldo + limite)
         {
-            System.out.println("ERRO: Saldo insuficiente.");
-        }
-        else if(sacar > limite)
-        {
-            System.out.println("ERRO: Limite")
+            saldo -= valor;
+            System.out.printf("Saque de R$ %.2f realizado com sucesso.", valor);
         }
         else
         {
-            
+            System.out.println("Saldo insuficiente ou valor errado.");
         }
+    }
+    void deposito(double valor)
+    {
+        if(valor > 0)
+        {
+            saldo = saldo + valor;
+            System.out.printf("Depósito de R$ %.2f realizado com sucesso.", valor);
+        }
+        else
+        {
+            System.out.println("Valor de depósito inválido.");
+        }
+    }
+    
+    double getSaldo()
+    {
+        return saldo;
+    }
+    double getLimite()
+    {
+        return limite;
     }
 }

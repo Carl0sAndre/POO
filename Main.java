@@ -1,6 +1,5 @@
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Project/Maven2/JavaApp/src/main/java/${packagePath}/${mainClassName}.java to edit this template
  */
 
 package com.mycompany.main;
@@ -15,21 +14,20 @@ public class Main {
     public static void main(String[] args) {
         
         Conta conta = new Conta();
-        conta.saldo = 1000.00;
         conta.limite = 500.00;
         conta.numero = 10;
         
         Cliente cli = new Cliente();
-        cli.nome = "Carlos";
-        cli.sobrenome = "Sanches";
+        cli.nome = "João";
+        cli.sobrenome = "Frango";
         cli.cpf = "111222333-44";
         
         conta.titular = cli;
         
         Cliente cli2 = new Cliente();
         cli2.cpf = "222111444-66";
-        cli2.nome = "ssss";
-        cli2.sobrenome = "qqqq";
+        cli2.nome = "Maria";
+        cli2.sobrenome = "Bonita";
         
         cli.Casar(cli2);
         Scanner scan = new Scanner(System.in);
@@ -66,10 +64,10 @@ public class Main {
                     conta.deposito(deposi);
                     break;
                 case 3:
-                    System.out.printf("O seu saldo é de: R$ %f\n", conta.getSaldo());
+                    System.out.printf("O seu saldo é de: R$ %.2f\n", conta.getSaldo());
                     break;
                 case 4:
-                    System.out.printf("Seu limite atual é de: R$ %f\n", conta.getLimite());
+                    System.out.printf("Seu limite atual é de: R$ %.2f\n", conta.getLimite());
                     break;
                 default:
                     System.err.println("Opção inválida.");

@@ -9,10 +9,11 @@ package com.mycompany.main;
  * @author alunolab08
  */
 public class Conta {
-    double saldo;
+    private double saldo = 1000.00;
     double limite;
     int numero;
     Cliente titular;
+    
     
     void sacar(double valor)
     {
@@ -39,11 +40,11 @@ public class Conta {
         }
     }
     
-    double getSaldo()
+    public double getSaldo()
     {
         return saldo;
     }
-    double getLimite()
+    public double getLimite()
     {
         return limite;
     }
